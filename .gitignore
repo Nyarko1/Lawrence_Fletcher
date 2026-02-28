@@ -1,0 +1,6 @@
+*.JPG
+*.jpg
+!headshot.jpg
+!headshot.png
+*.docx
+server.ps1

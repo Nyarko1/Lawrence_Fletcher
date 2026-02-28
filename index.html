@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Academic portfolio and research of Fletcher Lawrence, PhD Student at the University of Florida & Development Practitioner.">
+    <meta property="og:title" content="Fletcher Lawrence | PhD Student & Development Practitioner">
+    <meta property="og:description"
+        content="Explore my academic research, technical consultancies, and development fieldwork.">
+    <meta property="og:type" content="website">
+    <title>Fletcher Lawrence | PhD Student & Development Practitioner</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            50: '#f4f7ea',
+                            100: '#e5edcf',
+                            600: '#6d8a2e', // Primary Olive
+                            800: '#3f4f1a', // Dark Olive
+                        },
+                        slate: {
+                            800: '#2f3e46', // Dark Slate for text
+                            600: '#52796f', // Muted Slate
+                        },
+                        cream: '#fdfbf7', // Background
+                        sand: '#f3f0e6',  // Secondary Background
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #fdfbf7;
+            color: #334155;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Lora', serif;
+            color: #2f3e46;
+        }
+
+        .nav-link.active {
+            color: #6d8a2e;
+            font-weight: 700;
+            border-bottom: 2px solid #6d8a2e;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-cream text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#about"
+                class="text-xl md:text-2xl font-bold font-serif text-slate-800 tracking-tight hover:text-olive-600 transition-colors">
+                Fletcher Lawrence
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" aria-label="Toggle mobile menu"
+                class="md:hidden text-slate-800 hover:text-olive-600 transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-slate-600 font-medium">
+                <a href="#about" id="nav-about"
+                    class="nav-link active hover:text-olive-600 transition-colors pb-1">About</a>
+                <a href="#research" id="nav-research"
+                    class="nav-link hover:text-olive-600 transition-colors pb-1">Research</a>
+                <a href="#projects" id="nav-projects"
+                    class="nav-link hover:text-olive-600 transition-colors pb-1">Projects</a>
+                <a href="#teaching" id="nav-teaching"
+                    class="nav-link hover:text-olive-600 transition-colors pb-1">Teaching</a>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-6 space-y-6 shadow-lg absolute w-full">
+            <a href="#about" onclick="toggleMobileMenu()"
+                class="block text-lg font-serif text-slate-800 hover:text-olive-600">About</a>
+            <a href="#research" onclick="toggleMobileMenu()"
+                class="block text-lg font-serif text-slate-800 hover:text-olive-600">Research</a>
+            <a href="#projects" onclick="toggleMobileMenu()"
+                class="block text-lg font-serif text-slate-800 hover:text-olive-600">Projects</a>
+            <a href="#teaching" onclick="toggleMobileMenu()"
+                class="block text-lg font-serif text-slate-800 hover:text-olive-600">Teaching</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-6 py-12 md:py-20">
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section active">
+            <!-- Hero -->
+            <div class="grid md:grid-cols-12 gap-12 mb-20 items-center">
+                <!-- Portrait -->
+                <div class="md:col-span-4 lg:col-span-4 order-2 md:order-1">
+                    <div class="relative group">
+                        <div
+                            class="absolute inset-0 bg-olive-100 rounded-sm transform translate-x-3 translate-y-3 transition-transform group-hover:translate-x-2 group-hover:translate-y-2">
+                        </div>
+                        <div
+                            class="relative w-full aspect-[3/4] bg-stone-200 rounded-sm flex items-center justify-center overflow-hidden border border-stone-100">
+                            <!-- <i data-lucide="user" class="w-20 h-20 text-stone-400"></i> -->
+                            <img src="headshot.png" alt="Fletcher Lawrence" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intro Text -->
+                <div class="md:col-span-8 lg:col-span-8 order-1 md:order-2 space-y-6">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-slate-800 mb-3">Fletcher
+                            Lawrence</h1>
+                        <p class="text-xl text-olive-600 font-medium font-serif italic">Scholar & Development
+                            Practitioner</p>
+                        <p class="text-md text-slate-500 uppercase tracking-wider mt-1">PhD Student at the University
+                            of Florida</p>
+                    </div>
+
+                    <div class="prose prose-lg text-slate-700 leading-relaxed border-l-4 border-olive-600 pl-6">
+                        <p>
+                            I am a scholar and development practitioner with a strong interdisciplinary background in
+                            community-centered research and practice. My work prioritizes participatory, culturally
+                            grounded approaches to development, with research interests centering on the interplay
+                            between Trust Mechanisms and Aid Effectiveness, in the everyday practices of intervention.
+                        </p>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="CV-FLETCHER.pdf" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center px-6 py-3 bg-olive-600 text-white font-serif font-bold rounded-sm border border-olive-800 hover:bg-olive-800 transition-colors shadow-sm">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Education Timeline -->
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-8 flex items-center">
+                        <i data-lucide="book-open" class="w-6 h-6 mr-3 text-olive-600"></i> Education
+                    </h3>
+                    <div class="space-y-8 border-l border-stone-300 pl-8 ml-3 relative">
+                        <!-- PhD -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[39px] top-1 w-5 h-5 bg-olive-600 rounded-full border-4 border-cream"></span>
+                            <h4 class="text-lg font-bold">PhD in Anthropology</h4>
+                            <p class="text-slate-600">University of Florida <span
+                                    class="text-sm italic text-slate-400">(In Progress)</span></p>
+                        </div>
+
+                        <!-- MA -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[39px] top-1 w-5 h-5 bg-stone-300 rounded-full border-4 border-cream"></span>
+                            <h4 class="text-lg font-bold">MA in Sustainable Rural Transformation</h4>
+                            <p class="text-slate-600">Niger</p>
+                            <p class="text-sm text-slate-500 mt-1 italic">Focus: Grassroots pathways to rural resilience
+                            </p>
+                        </div>
+
+                        <!-- BA -->
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[39px] top-1 w-5 h-5 bg-stone-300 rounded-full border-4 border-cream"></span>
+                            <h4 class="text-lg font-bold">BA in Integrated Community Development</h4>
+                            <p class="text-slate-600">University for Development Studies, Ghana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience & Callout -->
+                <div class="space-y-10">
+                    <h3 class="text-2xl font-serif font-bold mb-8 flex items-center">
+                        <i data-lucide="award" class="w-6 h-6 mr-3 text-olive-600"></i> Experience
+                    </h3>
+                    <div class="bg-olive-50 p-8 rounded-lg border border-olive-100">
+                        <p class="text-lg font-medium text-slate-800 leading-relaxed">
+                            <span class="text-5xl float-left mr-3 mt-[-10px] text-olive-600 font-serif">"</span>
+                            Over 7 years of professional experience in water and sanitation initiatives and
+                            rural food systems enhancement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH SECTION -->
+        <section id="research" class="section">
+            <div class="max-w-4xl mx-auto">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-serif font-bold text-slate-800 mb-4">Academic Research</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl">Exploring the intersections of aid, accountability, and
+                        community resilience.</p>
+                </header>
+
+                <!-- Tab Navigation -->
+                <div class="flex space-x-1 border-b border-stone-200 mb-8">
+                    <button onclick="switchResearchTab('publications')" id="tab-publications"
+                        class="px-6 py-3 font-serif font-bold text-white bg-slate-800 rounded-t-lg transition-colors">
+                        Publications
+                    </button>
+                    <button onclick="switchResearchTab('reviews')" id="tab-reviews"
+                        class="px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors">
+                        Peer Reviews
+                    </button>
+                </div>
+
+                <!-- Tab Content: Publications -->
+                <div id="content-publications" class="animate-fade-in">
+                    <div class="space-y-8">
+                        <h2
+                            class="text-2xl font-serif font-bold text-olive-800 mb-6 uppercase tracking-wider text-sm flex items-center">
+                            <span class="bg-olive-100 p-2 rounded-full mr-3"><i data-lucide="book"
+                                    class="w-5 h-5 text-olive-800"></i></span>
+                            Peer-Reviewed Publications
+                        </h2>
+
+                        <!-- Publication 1: Terrorism and Biodiversity -->
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 hover:border-olive-300 transition-all">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-slate-800 leading-tight w-3/4">Impacts of Terrorism on
+                                    Biodiversity Management in West Africa Sahel: A Review <span
+                                        class="text-slate-500 font-normal text-lg ml-2">(2022)</span></h3>
+                            </div>
+                            <p class="text-slate-600 mb-1">
+                                <strong>Lawrence Nyarko Fletcher</strong>, Sakina Maman Bawa, and Moussa Soulé
+                            </p>
+                            <p class="text-slate-500 italic mb-6">Research in Ecology</p>
+
+                            <div class="flex gap-4">
+                                <button onclick="toggleAbstract('abs-1')"
+                                    class="px-4 py-2 text-xs font-bold text-olive-700 bg-olive-50 rounded-md hover:bg-olive-100 transition-colors uppercase tracking-wide">
+                                    Abstract
+                                </button>
+                                <a href="terrorism and biodiversity.pdf" target="_blank" rel="noopener noreferrer"
+                                    class="px-4 py-2 text-xs font-bold text-slate-600 bg-stone-100 rounded-md hover:bg-stone-200 transition-colors uppercase tracking-wide">
+                                    PDF
+                                </a>
+                                <a href="#"
+                                    class="px-4 py-2 text-xs font-bold text-slate-600 bg-stone-100 rounded-md hover:bg-stone-200 transition-colors uppercase tracking-wide">
+                                    DOI Link
+                                </a>
+                            </div>
+                            <div id="abs-1"
+                                class="hidden mt-4 bg-stone-50 p-4 rounded-md text-slate-600 text-sm leading-relaxed border-l-2 border-olive-400">
+                                Over the past 50 years, a number of homegrown solutions and international development
+                                assistance have been initiated and implemented to curb the downward spiral of
+                                biodiversity in the West Africa Sahel. Terrorist activities in the West Africa Sahel
+                                have negatively affected biodiversity management in the region. This paper reviewed the
+                                impact of terrorism on biodiversity management in the region. The review was done by
+                                searching relative keywords on search engines for reports, scientific articles, books,
+                                and other published materials. It was found that terrorists have engaged in activities
+                                such as kidnapping of foresters, hijacking and controlling protected areas, destroying
+                                the environment through forest/bush fires, use of explosives, and poaching. These
+                                activities destroy animal habitats and lead to biodiversity depletion. The Sahel states
+                                should strengthen their cooperation in building the capacities of the citizens in
+                                reducing the viability of terrorism through sustainable green jobs.
+                                <br><br>
+                                <strong>Keywords:</strong> Terrorism, Biodiversity, West Africa Sahel, Management.
+                            </div>
+                        </div>
+
+                        <!-- Publication 2: Irrigation Paper -->
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 hover:border-olive-300 transition-all">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-slate-800 leading-tight w-3/4">The Place of
+                                    Supplementary Irrigation: Agriculture and Sustainable Rural Transformation Strategy
+                                    in a Changing Climate: A Review <span
+                                        class="text-slate-500 font-normal text-lg ml-2">(2022)</span></h3>
+                            </div>
+                            <p class="text-slate-600 mb-1">
+                                <strong>Nyarko Lawrence Fletcher</strong> and Gnanki Mariam Lafia N'Gobi
+                            </p>
+                            <p class="text-slate-500 italic mb-6">Ecofeminism and Climate Change</p>
+
+                            <div class="flex gap-4">
+                                <button onclick="toggleAbstract('abs-2')"
+                                    class="px-4 py-2 text-xs font-bold text-olive-700 bg-olive-50 rounded-md hover:bg-olive-100 transition-colors uppercase tracking-wide">
+                                    Abstract
+                                </button>
+                                <a href="irrigation paper.pdf" target="_blank" rel="noopener noreferrer"
+                                    class="px-4 py-2 text-xs font-bold text-slate-600 bg-stone-100 rounded-md hover:bg-stone-200 transition-colors uppercase tracking-wide">
+                                    PDF
+                                </a>
+                                <a href="#"
+                                    class="px-4 py-2 text-xs font-bold text-slate-600 bg-stone-100 rounded-md hover:bg-stone-200 transition-colors uppercase tracking-wide">
+                                    DOI Link
+                                </a>
+                            </div>
+                            <div id="abs-2"
+                                class="hidden mt-4 bg-stone-50 p-4 rounded-md text-slate-600 text-sm leading-relaxed border-l-2 border-olive-400">
+                                Farmer productivity has been experiencing some decline for some decades now due to
+                                conflicts, policy failures, and importantly the impacts of climate change. Climate-Smart
+                                Agriculture provides the platform for farmers to adapt and mitigate the impacts of
+                                climate change while improving their incomes. This paper proposes a supplementary
+                                irrigation system as a panacea to crop water stress occasioned by climate change. The
+                                system was modeled for a 0.5 hectare rice farm to provide the right amount of water for
+                                optimum growth and yield. FAO's Climatwat and Cropwat were used to obtain climatic
+                                parameters and generate the developmental stages of the rice crop respectively. The
+                                Blaney-Criddle approach was used to determine the crop water needs. A 13.41m3 surface
+                                reservoir will be sufficient to provide the right amount of water to the 0.5 hectare
+                                rice farm for optimum productivity.
+                                <br><br>
+                                <strong>Keywords:</strong> Supplementary irrigation, Blaney-Criddle Approach, Crop water
+                                needs, Climate Smart Agriculture.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Tab Content: Peer Reviews -->
+                <div id="content-reviews" class="hidden animate-fade-in">
+                    <div class="bg-white rounded-lg border border-stone-200 overflow-hidden shadow-sm">
+                        <div class="p-8 bg-stone-50 border-b border-stone-200">
+                            <h2 class="text-2xl font-serif font-bold text-slate-800 mb-2">Academic Service</h2>
+                            <p class="text-slate-600">A record of journals and conferences for which I have provided
+                                formal peer reviews, contributing to the rigor of scholarship in Anthropology and
+                                Development Studies.</p>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-stone-100 text-slate-500 font-bold uppercase text-xs tracking-wider">
+                                    <tr>
+                                        <th class="px-8 py-4">Journal / Publisher Name</th>
+                                        <th class="px-8 py-4">Year(s) Active</th>
+                                        <th class="px-8 py-4">Manuscripts Reviewed</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-stone-100">
+                                    <tr class="hover:bg-stone-50 transition-colors">
+                                        <td class="px-8 py-4 font-bold text-slate-700">Journal of Peasant Studies</td>
+                                        <td class="px-8 py-4 text-slate-600">2023 - Present</td>
+                                        <td class="px-8 py-4 text-slate-600">3</td>
+                                    </tr>
+                                    <tr class="hover:bg-stone-50 transition-colors">
+                                        <td class="px-8 py-4 font-bold text-slate-700">World Development</td>
+                                        <td class="px-8 py-4 text-slate-600">2024</td>
+                                        <td class="px-8 py-4 text-slate-600">1</td>
+                                    </tr>
+                                    <tr class="hover:bg-stone-50 transition-colors">
+                                        <td class="px-8 py-4 font-bold text-slate-700">African Affairs</td>
+                                        <td class="px-8 py-4 text-slate-600">2022 - 2023</td>
+                                        <td class="px-8 py-4 text-slate-600">2</td>
+                                    </tr>
+                                    <tr class="hover:bg-stone-50 transition-colors">
+                                        <td class="px-8 py-4 font-bold text-slate-700">Human Organization</td>
+                                        <td class="px-8 py-4 text-slate-600">2023</td>
+                                        <td class="px-8 py-4 text-slate-600">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-12">
+                    <h1 class="text-4xl font-serif font-bold text-slate-800 mb-4">Projects & Consultancies</h1>
+                    <p class="text-lg text-slate-600">Fieldwork and applied development practice.</p>
+                </header>
+
+                <!-- Container for both List and Detail views -->
+                <div class="relative min-h-[600px]">
+
+                    <!-- MAIN LIST VIEW -->
+                    <div id="projects-list" class="transition-opacity duration-300">
+
+                        <!-- Section 1: Water & Sanitation -->
+                        <div class="mb-16">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="bg-cyan-900/10 p-3 rounded-full">
+                                    <i data-lucide="droplets" class="w-6 h-6 text-cyan-800"></i>
+                                </div>
+                                <h2 class="text-2xl font-serif font-bold text-slate-800">Water & Sanitation Initiatives
+                                </h2>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                                <!-- Project 1 -->
+                                <button onclick="openProject(1)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="map" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Urban Water Strategies</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Accra, Ghana</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 2 -->
+                                <button onclick="openProject(2)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="users" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Rural Sanitation</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Northern Region</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 3 -->
+                                <button onclick="openProject(3)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="wrench" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Borehole Usage</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Rural Districts</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 4 -->
+                                <button onclick="openProject(4)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="school" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            WASH in Schools</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Kumasi</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 5 -->
+                                <button onclick="openProject(5)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="file-text" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Policy Framework</h3>
+                                        <p class="text-sm text-slate-500 mb-4">National</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Enhancing Rural Food Systems -->
+                        <div>
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="bg-amber-900/10 p-3 rounded-full">
+                                    <i data-lucide="tractor" class="w-6 h-6 text-amber-800"></i>
+                                </div>
+                                <h2 class="text-2xl font-serif font-bold text-slate-800">Enhancing Rural Food Systems
+                                </h2>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Project 1: Women and Climate (ID 9) -->
+                                <button onclick="openProject(9)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-amber-50 transition-colors">
+                                        <i data-lucide="sun" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Women and Climate Resilient Food Production</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Savannah Zone</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 2: Post Harvest (ID 7) -->
+                                <button onclick="openProject(7)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-amber-50 transition-colors">
+                                        <i data-lucide="archive" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Post Harvest Processing and Marketing</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Eastern Region</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 3: Farmers Savings (ID 8) -->
+                                <button onclick="openProject(8)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-amber-50 transition-colors">
+                                        <i data-lucide="trending-up" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Farmers Savings and Loans Scheme</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Peri-urban</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 4: Youth Ag Mech (ID 6) -->
+                                <button onclick="openProject(6)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-amber-50 transition-colors">
+                                        <i data-lucide="tractor" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Youth for Agricultural Mechanization</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Rural Districts</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Sustainable Development Goals Initiatives -->
+                        <div>
+                            <div class="flex items-center gap-4 mb-8 mt-16">
+                                <div class="bg-cyan-900/10 p-3 rounded-full">
+                                    <i data-lucide="globe" class="w-6 h-6 text-cyan-800"></i>
+                                </div>
+                                <h2 class="text-2xl font-serif font-bold text-slate-800">Sustainable Development Goals
+                                    Initiatives</h2>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Project 1 (ID 10) -->
+                                <button onclick="openProject(10)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="heart" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Zero Hunger Initiative</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Central Region</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 2 (ID 11) -->
+                                <button onclick="openProject(11)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="droplets" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Clean Water Campaign</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Volta Region</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 3 (ID 12) -->
+                                <button onclick="openProject(12)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="users" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Gender Equality in Ag</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Northern Belt</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 4 (ID 13) -->
+                                <button onclick="openProject(13)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="tree-deciduous" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Climate Action Fund</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Forest Zone</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <!-- Project 5 (ID 14) -->
+                                <button onclick="openProject(14)"
+                                    class="group text-left bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all duration-300">
+                                    <div
+                                        class="h-40 bg-stone-100 flex items-center justify-center text-stone-400 group-hover:bg-cyan-50 transition-colors">
+                                        <i data-lucide="link" class="w-10 h-10"></i>
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="font-serif font-bold text-slate-800 mb-2 group-hover:text-olive-600 transition-colors">
+                                            Partnership for Goals</h3>
+                                        <p class="text-sm text-slate-500 mb-4">Capital City</p>
+                                        <span
+                                            class="text-xs font-bold text-olive-600 uppercase tracking-widest flex items-center">
+                                            View Project <i data-lucide="arrow-right"
+                                                class="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DETAIL VIEW (Hidden by default) -->
+                <div id="project-detail" class="hidden min-h-screen bg-white absolute top-0 left-0 w-full z-10">
+                    <button onclick="closeProject()"
+                        class="mb-8 inline-flex items-center text-stone-500 hover:text-olive-600 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to all projects
+                    </button>
+
+                    <div id="project-content" class="animate-fade-in">
+                        <!-- Content injected via JS -->
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- TEACHING SECTION -->
+        <section id="teaching" class="section">
+            <div class="max-w-3xl mx-auto">
+                <header class="mb-12 border-b border-stone-200 pb-8">
+                    <h1 class="text-4xl font-serif font-bold text-slate-800 mb-4">Teaching</h1>
+                    <p class="text-lg text-slate-600">Courses taught at the University of Florida.</p>
+                </header>
+
+                <div class="space-y-12">
+                    <div>
+                        <h2 class="text-xl font-bold font-serif text-slate-400 mb-6">Current Courses</h2>
+                        <div class="bg-white border-l-4 border-olive-600 p-6 shadow-sm">
+                            <h3 class="text-2xl font-serif font-bold text-slate-800">ANT 101: Introduction to
+                                Anthropology</h3>
+                            <p class="text-slate-600 mt-2 font-medium">Fall 2025</p>
+                            <p class="text-slate-500 mt-2 leading-relaxed">A survey of the four subfields of
+                                anthropology: cultural, biological, linguistic, and archaeology.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-xl font-bold font-serif text-slate-400 mb-6">Past Courses</h2>
+                        <ul class="space-y-4">
+                            <li
+                                class="bg-stone-50 p-6 rounded-sm border border-stone-100 flex justify-between items-center group hover:bg-white hover:shadow-sm transition-all">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-slate-700 group-hover:text-olive-800 transition-colors">
+                                        Development & Culture</h3>
+                                    <p class="text-sm text-slate-500 mt-1">Spring 2024</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="text-stone-300 group-hover:text-olive-600"></i>
+                            </li>
+                            <li
+                                class="bg-stone-50 p-6 rounded-sm border border-stone-100 flex justify-between items-center group hover:bg-white hover:shadow-sm transition-all">
+                                <div>
+                                    <h3
+                                        class="text-lg font-bold text-slate-700 group-hover:text-olive-800 transition-colors">
+                                        African Studies Seminar</h3>
+                                    <p class="text-sm text-slate-500 mt-1">Fall 2023</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="text-stone-300 group-hover:text-olive-600"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200 py-12 mt-auto">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="font-serif text-lg font-bold text-slate-800">Fletcher Lawrence</p>
+                    <p class="text-sm text-slate-500 mt-1">&copy; 2026. All rights reserved.</p>
+                </div>
+                <div class="flex md:justify-end space-x-8">
+                    <a href="mailto:fletcher@ufl.edu"
+                        class="text-slate-500 hover:text-olive-600 transition-colors flex items-center">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i> <span class="hidden sm:inline">Email</span>
+                    </a>
+                    <a href="#" class="text-slate-500 hover:text-olive-600 transition-colors flex items-center">
+                        <i data-lucide="book-open" class="w-5 h-5 mr-2"></i> <span
+                            class="hidden sm:inline">Scholar</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fletchernyarko/"
+                        class="text-slate-500 hover:text-olive-600 transition-colors flex items-center">
+                        <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i> <span
+                            class="hidden sm:inline">LinkedIn</span>
+                    </a>
+                    <a href="https://orcid.org/0000-0002-2232-0959"
+                        class="text-slate-500 hover:text-olive-600 transition-colors flex items-center">
+                        <i data-lucide="fingerprint" class="w-5 h-5 mr-2"></i> <span
+                            class="hidden sm:inline">ORCID</span>
+                    </a>
+                    <a href="https://www.facebook.com/nyankurto.lorinz"
+                        class="text-slate-500 hover:text-olive-600 transition-colors flex items-center">
+                        <i data-lucide="facebook" class="w-5 h-5 mr-2"></i> <span
+                            class="hidden sm:inline">Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Project Data
+        const projectsData = {
+            1: {
+                title: "Urban Water Access Strategy",
+                category: "Consultancy | 2023 - Present",
+                description: "This project focused on enhancing municipal water distribution in high-density informal settlements. Through participatory mapping and stakeholder engagement, we identified key infrastructure bottlenecks and proposed a decentralized community-managed distribution model.",
+                meta: {
+                    Location: "Accra, Ghana",
+                    Duration: "18 Months",
+                    Stakeholders: "Municipal Water Co, Local NGOs",
+                    Impact: "Improved access for 5,000+ residents"
+                },
+                images: [1, 2, 3]
+            },
+            2: {
+                title: "Rural Sanitation Hygiene",
+                category: "Fieldwork | 2022",
+                description: "A comprehensive assessment of Community-Led Total Sanitation (CLTS) implementation. The study evaluated behavioral change sustainability and the long-term usage of latrines in rural communities.",
+                meta: {
+                    Location: "Northern Region",
+                    Duration: "12 Months",
+                    Stakeholders: "UNICEF, Community Leaders",
+                    Impact: "Policy recommendations adopted by regional board"
+                },
+                images: [1, 2]
+            },
+            3: {
+                title: "Borehole Sustainability Study",
+                category: "Analysis | 2021",
+                description: "Longitudinal study on the maintenance of manual boreholes. We analyzed the failure rates of varying pump types and the correlation with community maintenance committee activity.",
+                meta: {
+                    Location: "Various Rural Districts",
+                    Duration: "24 Months",
+                    Stakeholders: "WaterAid",
+                    Impact: "Revised maintenance training curriculum"
+                },
+                images: [1, 2, 3, 4]
+            },
+            4: {
+                title: "WASH in Schools",
+                category: "Evaluation | 2020",
+                description: "Impact evaluation of hygiene education curriculums in primary schools. The project measured health outcomes and student attendance visualization before and after intervention.",
+                meta: {
+                    Location: "Kumasi",
+                    Duration: "9 Months",
+                    Stakeholders: "Ministry of Education",
+                    Impact: "curriculum rolled out to 40 schools"
+                },
+                images: [1, 2]
+            },
+            5: {
+                title: "Policy Framework Review",
+                category: "Consultancy | 2019",
+                description: "National level review of water privatization policies and their impact on low-income households. Produced a white paper for legislative review.",
+                meta: {
+                    Location: "National",
+                    Duration: "6 Months",
+                    Stakeholders: "Policy Think Tank",
+                    Impact: "Cited in 2020 regulatory bill"
+                },
+                images: [1]
+            },
+            6: {
+                title: "Youth for Agricultural Mechanization",
+                category: "Fieldwork",
+                description: "Focused on youth engagement in modernizing rural agriculture. Supporting young farmers through the introduction of appropriate mechanistic technologies and training.",
+                meta: {
+                    Location: "Rural Districts",
+                    Duration: "24 Months",
+                    Stakeholders: "Farm Co-ops",
+                    Impact: "Increased youth participation"
+                },
+                images: [1, 2]
+            },
+            7: {
+                title: "Post Harvest Processing and Marketing",
+                category: "Research",
+                description: "Investigation into processing techniques and storage solutions to reduce post-harvest grain loss and improve market readiness.",
+                meta: {
+                    Location: "Eastern Region",
+                    Duration: "12 Months",
+                    Stakeholders: "Agri-Extension",
+                    Impact: "Reduced losses by 30%"
+                },
+                images: [1]
+            },
+            8: {
+                title: "Farmers Savings and Loans Scheme",
+                category: "Development",
+                description: "Establishing community-based village savings and loans associations (VSLA) to empower smallholder farmers with financial resilience and credit access.",
+                meta: {
+                    Location: "Peri-urban",
+                    Duration: "18 Months",
+                    Stakeholders: "Development Bank",
+                    Impact: "Credit access for 500+ farmers"
+                },
+                images: [1, 2, 3]
+            },
+            9: {
+                title: "Women and Climate Resilient Food Production",
+                fullTitle: "Enhancing Climate Resilience and Incomes of Rural Women and Youth Through Climate Smart Agriculture and Green Energy",
+                category: "Climate Smart Agriculture | 2022 – 2024",
+                objective: "To stimulate women and youth’s entrepreneurship towards improving their incomes, self-sufficiency, and ability to contribute to the achievement of the Sustainable Development Goals.",
+                description: `
+                    <p class="mb-6">
+                        The project raised climate awareness among community members and built the capacities of some 40 women farmers (a farmer group) in soil management, climate resilient farming practices, and also supported the farmers with a solar powered irrigation system for all year farming. In view of the fact that the anticipated increased yields may lead to post-harvest losses, some 25 women were trained in food processing and packaging. The project supported these women with basic food processing equipment and a solar hub to provide them with a working space and clean energy.
+                    </p>
+                    <p class="mb-6">
+                        Another group of 10 traders were trained in marketing strategies to help link producers/processors with available markets. Finally, a group consisting of 20 young women and 10 young men were provided hands-on capacity enhancement in solar PV technology installation for irrigation and household electrification. This cadre served as technicians to service the irrigation solar system for the women farmers, whiles providing services to the larger population to scale-up solar energy use.
+                    </p>
+                    <p class="mb-10">
+                        The project aimed to create a food value chain within the town that is owned and controlled by women. The last phase of the project facilitated the formation of a Cooperative society including members from all the projects target beneficiaries. As a project sustainability and exit strategy meant to ensure that the gains of the project are sustained and replicated in a never-ending cycle.
+                    </p>
+
+                    <div class="bg-olive-50 p-8 rounded-lg border border-olive-100 shadow-sm mb-8">
+                        <h3 class="text-2xl font-serif font-bold text-slate-800 mb-8 flex items-center border-b border-olive-200 pb-4">
+                            <i data-lucide="clipboard-list" class="w-6 h-6 mr-3 text-olive-600"></i> Outputs, Outcomes and Learning
+                        </h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-12">
+                            <div>
+                                <h4 class="font-bold text-olive-700 mb-4 uppercase tracking-widest text-xs flex items-center">
+                                    <i data-lucide="package-check" class="w-4 h-4 mr-2"></i> Outputs
+                                </h4>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>40 women farmers</strong> trained in climate-smart agriculture.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>30 youth</strong> (20 women, 10 men) trained in solar photovoltaic technology.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>25 women</strong> trained in agro-processing and packaging.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>10 traders</strong> (women) trained in marketing strategies.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span>Solar-powered drip irrigation system installed for year-round farming.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span>Solar hub established to support food processors with clean energy and workspace.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span>17,000 liters of overhead water storage systems provided.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <span class="w-1.5 h-1.5 bg-olive-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span>Formation of a women-led cooperative society including all project beneficiaries.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-olive-700 mb-4 uppercase tracking-widest text-xs flex items-center">
+                                    <i data-lucide="sprout" class="w-4 h-4 mr-2"></i> Outcomes & Learning
+                                </h4>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Women’s Empowerment:</strong> Greater access, control, and decision-making power over production resources.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Leadership:</strong> Enhanced leadership and teamwork among cooperative members.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Financial Literacy:</strong> Improved financial literacy and stimulated savings culture among women.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Knowledge Adoption:</strong> Locally grounded agricultural knowledge and adoption of climate-resilient practices.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Environmental Sustainability:</strong> Reduced CO₂ footprint from solar-powered irrigation and processing.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Value Chain Development:</strong> Strengthened local food value chain owned and managed by women.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Youth Opportunity:</strong> Youth employment and technical capacity in renewable energy technologies.</span>
+                                    </li>
+                                    <li class="flex items-start text-sm text-slate-700">
+                                        <i data-lucide="arrow-right" class="w-4 h-4 text-olive-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                                        <span><strong>Resilience:</strong> Improved community resilience through sustainable food production and energy systems.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                funder: "Foreign and Commonwealth Development Office (FCDO)",
+                fundingAmount: "£48,931",
+                beneficiaries: {
+                    total: 105,
+                    women: 75,
+                    youth: 30,
+                    youthBreakdown: "20 Young Women, 10 Young Men"
+                },
+                video: "vid.mp4",
+                sdgs: [2, 5, 7],
+                meta: {
+                    Location: "Karra Community, Niger",
+                    Duration: "2022 – 2024",
+                    Stakeholders: "University of Niamey, British Embassy Niger, LGA",
+                    "Key Partners": "Community Members"
+                },
+                images: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp", "7.webp", "8.webp", "9.webp", "10.webp", "11.webp", "12.webp", "13.webp"]
+            },
+            10: {
+                title: "Zero Hunger Initiative",
+                category: "SDG Initiative",
+                description: "A targeted initiative contributing to SDG 2: Zero Hunger. We implemented sustainable farming practices in food-insecure regions, focusing on soil health restoration and diversified crop rotation to ensure year-round food availability.",
+                meta: {
+                    "Associated SDG(s)": "SDG 2, SDG 12",
+                    "Location": "Central Region",
+                    "Partners": "World Food Programme",
+                    "Key Activities": "Soil workshops, Seed distribution",
+                    "Achieved Outcomes": "20% reduction in seasonal hunger"
+                },
+                images: [1, 2]
+            },
+            11: {
+                title: "Clean Water Campaign",
+                category: "SDG Initiative",
+                description: "Directly addressing SDG 6: Clean Water and Sanitation. This project installed solar-powered filtration systems in remote schools, reducing waterborne diseases and improving student health.",
+                meta: {
+                    "Associated SDG(s)": "SDG 6, SDG 3",
+                    "Location": "Volta Region",
+                    "Partners": "Local Government",
+                    "Key Activities": "Filtration install, Health training",
+                    "Achieved Outcomes": "Clean water for 3,000 students"
+                },
+                images: [1, 2, 3]
+            },
+            12: {
+                title: "Gender Equality in Ag",
+                category: "SDG Initiative",
+                description: "Promoting SDG 5: Gender Equality. This program provided leadership training and land rights advocacy for female farmers, challenging traditional barriers to resource ownership.",
+                meta: {
+                    "Associated SDG(s)": "SDG 5, SDG 10",
+                    "Location": "Northern Belt",
+                    "Partners": "Women's Legal Aid",
+                    "Key Activities": "Legal clinics, Leadership workshops",
+                    "Achieved Outcomes": "500 women secured land titles"
+                },
+                images: [1]
+            },
+            13: {
+                title: "Climate Action Fund",
+                category: "SDG Initiative",
+                description: "Aligned with SDG 13: Climate Action. We established a community fund to support reforestation efforts and the adoption of climate-smart agricultural inputs.",
+                meta: {
+                    "Associated SDG(s)": "SDG 13, SDG 15",
+                    "Location": "Forest Zone",
+                    "Partners": "Forestry Commission",
+                    "Key Activities": "Tree planting, Carbon tracking",
+                    "Achieved Outcomes": "10,000 trees planted"
+                },
+                images: [1, 2]
+            },
+            14: {
+                title: "Partnership for Goals",
+                category: "SDG Initiative",
+                description: "Strengthening SDG 17: Partnerships for the Goals. This initiative created a multi-stakeholder platform connecting local NGOs, private sector actors, and government bodies to coordinate development efforts.",
+                meta: {
+                    "Associated SDG(s)": "SDG 17",
+                    "Location": "Capital City",
+                    "Partners": "Multiple Agencies",
+                    "Key Activities": "Quarterly summits, Data sharing",
+                    "Achieved Outcomes": "Unified national development strategy"
+                },
+                images: [1, 2, 3]
+            }
+        };
+
+        function openProject(id) {
+            const data = projectsData[id];
+            if (!data) return;
+
+            // Hide List, Show Detail
+            document.getElementById('projects-list').classList.add('hidden');
+            const detailView = document.getElementById('project-detail');
+            detailView.classList.remove('hidden');
+
+            // Update URL hash for deep linking to project
+            history.pushState(null, null, `#project-${id}`);
+
+            // Populate Content template
+            const content = `
+                <div class="mb-12">
+                    <div class="h-64 md:h-96 bg-stone-200 rounded-sm mb-8 flex items-center justify-center text-stone-400 relative overflow-hidden group">
+                        <span class="z-10 text-xs font-bold uppercase tracking-widest text-olive-800 bg-olive-100/90 backdrop-blur-sm px-4 py-2 rounded-full mb-4 absolute top-6 left-6 shadow-sm">${data.category}</span>
+                        ${data.video ? `
+                            <video src="${data.video}" controls class="w-full h-full object-cover"></video>
+                        ` : `
+                            <i data-lucide="image" class="w-16 h-16"></i>
+                        `}
+                    </div>
+                    
+                    <h1 class="text-3xl md:text-5xl font-serif font-bold text-slate-800 mb-6">${data.fullTitle || data.title}</h1>
+                    
+                    <!-- Financial Overview (Conditional) -->
+                    ${data.funder ? `
+                    <div class="bg-olive-50 border border-olive-100 rounded-sm p-6 mb-8 flex flex-col md:flex-row justify-between items-center shadow-sm">
+                        <div>
+                            <span class="block text-xs font-bold text-olive-600 uppercase tracking-wider mb-1">Funded By</span>
+                            <span class="text-lg md:text-xl font-serif font-bold text-slate-800">${data.funder}</span>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:text-right border-t md:border-t-0 border-olive-200 pt-4 md:pt-0 w-full md:w-auto">
+                            <span class="block text-xs font-bold text-olive-600 uppercase tracking-wider mb-1">Grant Amount</span>
+                            <span class="text-2xl font-serif font-bold text-olive-800">${data.fundingAmount}</span>
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <!-- Impact Metrics Bar (Conditional) -->
+                     ${data.beneficiaries ? `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-stone-200 rounded-md overflow-hidden mb-10 shadow-sm">
+                        <div class="bg-slate-800 text-white p-6 text-center">
+                             <div class="text-4xl font-bold font-serif mb-1">${data.beneficiaries.total}</div>
+                             <div class="text-xs uppercase tracking-widest opacity-80">Total Beneficiaries</div>
+                        </div>
+                        <div class="bg-white p-6 text-center border-b md:border-b-0 md:border-r border-stone-100">
+                             <div class="text-4xl font-bold font-serif text-slate-700 mb-1">${data.beneficiaries.women}</div>
+                             <div class="text-xs uppercase tracking-widest text-slate-500">Women</div>
+                        </div>
+                        <div class="bg-white p-6 text-center">
+                             <div class="text-4xl font-bold font-serif text-slate-700 mb-1">${data.beneficiaries.youth}</div>
+                             <div class="text-xs uppercase tracking-widest text-slate-500">Youth</div>
+                             <div class="text-[10px] text-slate-400 mt-1">${data.beneficiaries.youthBreakdown}</div>
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <!-- Objective (Conditional) -->
+                    ${data.objective ? `
+                        <div class="mb-10 p-8 bg-stone-50 border-l-4 border-olive-500 rounded-r-md">
+                            <h3 class="text-sm font-bold text-olive-600 uppercase tracking-wider mb-3">Project Objective</h3>
+                            <p class="text-xl font-serif text-slate-800 italic leading-relaxed">"${data.objective}"</p>
+                        </div>
+                    ` : ''}
+
+                    <!-- Metadata Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-stone-200 py-6 mb-8">
+                        ${Object.entries(data.meta).map(([key, value]) => `
+                            <div>
+                                <span class="block text-xs font-bold text-olive-600 uppercase tracking-wider mb-1">${key}</span>
+                                <span class="text-slate-700 font-medium">${value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- SDGs (Conditional) -->
+                     ${data.sdgs ? `
+                    <div class="flex flex-wrap gap-3 mb-10">
+                        ${data.sdgs.includes(2) ? `<span class="bg-[#D3A029] text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wide shadow-sm">SDG 2: Zero Hunger</span>` : ''}
+                        ${data.sdgs.includes(5) ? `<span class="bg-[#FF3A21] text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wide shadow-sm">SDG 5: Gender Equality</span>` : ''}
+                        ${data.sdgs.includes(7) ? `<span class="bg-[#FCC30B] text-slate-800 px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wide shadow-sm">SDG 7: Affordable Energy</span>` : ''}
+                    </div>
+                    ` : ''}
+
+                    <!-- Rich Description -->
+                    <div class="prose prose-lg text-slate-700 max-w-none mb-12">
+                        ${data.description} <!-- Handles HTML content -->
+                        ${!data.description.includes('<p>') ? `<p>${data.description}</p>` : '' /* Fallback for plain text if needed, simplified logic */}
+                    </div>
+
+                    <!-- Masonry Gallery -->
+                    <h3 class="text-xl font-serif font-bold text-slate-800 mb-6">Project Gallery</h3>
+                    <div class="columns-1 md:columns-3 gap-4 space-y-4 mb-12">
+                        ${data.images.map((img, index) => {
+                const isPath = typeof img === 'string';
+                return `
+                            <div class="bg-stone-100 rounded-lg overflow-hidden break-inside-avoid">
+                                <div class="${isPath ? '' : 'aspect-video'} bg-stone-200 flex items-center justify-center text-stone-400 relative">
+                                     ${isPath ?
+                        `<img src="${img}" alt="Gallery Image ${index + 1}" class="w-full h-auto block hover:scale-105 transition-transform duration-500">` :
+                        `<i data-lucide="camera" class="w-8 h-8"></i><span class="absolute bottom-2 right-2 text-[10px] text-slate-400">IMG ${index + 1}</span>`
+                    }
+                                </div>
+                            </div>
+                        `}).join('')}
+                    </div>
+
+                    <!-- Bottom Back Button -->
+                    <div class="border-t border-stone-200 pt-8 flex justify-center">
+                         <button onclick="closeProject()"
+                            class="inline-flex items-center px-8 py-3 bg-white border border-stone-300 hover:bg-stone-50 hover:border-olive-300 text-slate-600 hover:text-olive-700 font-bold uppercase tracking-widest rounded transition-all shadow-sm">
+                            <i data-lucide="arrow-up" class="w-4 h-4 mr-2"></i> Back to Projects
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('project-content').innerHTML = content;
+            lucide.createIcons();
+            window.scrollTo(0, 0); // Scroll to top of detail view
+        }
+
+        function closeProject() {
+            document.getElementById('project-detail').classList.add('hidden');
+            document.getElementById('projects-list').classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            // Reset URL hash to just #projects
+            if (window.location.hash.startsWith('#project-')) {
+                history.pushState(null, null, '#projects');
+            }
+        }
+
+        // Navigation Logic
+        function showSection(sectionId) {
+            // Default to about if not found
+            if (!document.getElementById(sectionId)) {
+                sectionId = 'about';
+            }
+
+            // Reset Project View if leaving projects page
+            if (sectionId !== 'projects') {
+                closeProject();
+            }
+
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update Nav State
+            const navLink = document.getElementById('nav-' + sectionId);
+            if (navLink) navLink.classList.add('active');
+
+            // Re-initialize icons
+            lucide.createIcons();
+
+            // Only scroll to top if not returning to projects list from detail
+            if (sectionId !== 'projects' || document.getElementById('project-detail').classList.contains('hidden')) {
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Handle Hash Tag Navigation
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1) || 'about';
+
+            // Handle specific project links like #project-9
+            if (hash.startsWith('project-')) {
+                const projectId = hash.replace('project-', '');
+                showSection('projects');
+                setTimeout(() => openProject(projectId), 100);
+            } else {
+                showSection(hash);
+            }
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('DOMContentLoaded', handleHashChange);
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Research Tab Logic
+        function switchResearchTab(tabId) {
+            // content
+            document.getElementById('content-publications').classList.add('hidden');
+            document.getElementById('content-reviews').classList.add('hidden');
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+
+            // tabs style
+            document.getElementById('tab-publications').className = "px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors";
+            document.getElementById('tab-reviews').className = "px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors";
+
+            // active tab style
+            document.getElementById('tab-' + tabId).className = "px-6 py-3 font-serif font-bold text-white bg-slate-800 rounded-t-lg transition-colors";
+        }
+
+        function toggleAbstract(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
