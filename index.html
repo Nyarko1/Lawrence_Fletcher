@@ -1208,6 +1208,8 @@
                     youthBreakdown: "20 Young Women, 10 Young Men"
                 },
                 video: "vid.mp4",
+                report: "Website%20files/Karra-Project-Achievements-Report.pdf",
+                reportDocx: "Website%20files/Karra-Project-Achievements-Report.docx",
                 sdgs: [2, 5, 7],
                 meta: {
                     Location: "Karra Community, Niger",
@@ -1370,6 +1372,15 @@
                     </div>
                     ` : ''}
 
+                    <!-- Project Tabs (only when a report exists) -->
+                    ${data.report ? `
+                    <div class="flex gap-2 border-b border-stone-200 mb-8">
+                        <button onclick="switchProjectTab('overview')" id="ptab-overview" class="px-6 py-3 font-serif font-bold text-white bg-slate-800 rounded-t-lg transition-colors">Overview</button>
+                        <button onclick="switchProjectTab('report')" id="ptab-report" class="px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors">Project Report</button>
+                    </div>
+                    <div id="pcontent-overview">
+                    ` : ''}
+
                     <!-- Rich Description -->
                     <div class="prose prose-lg text-slate-700 max-w-none mb-12">
                         ${data.description} <!-- Handles HTML content -->
@@ -1392,6 +1403,20 @@
                             </div>
                         `}).join('')}
                     </div>
+                    ${data.report ? `
+                    </div>
+                    <div id="pcontent-report" class="hidden mb-12">
+                        <div class="bg-olive-50 border border-olive-100 rounded-lg p-6 mb-6">
+                            <h3 class="text-xl font-serif font-bold text-slate-800 mb-2">Project Report — What the Project Achieved</h3>
+                            <p class="text-sm text-slate-600 mb-4">The full achievements report for the Karra Community project, from the starting point — hand-dug dugouts and unprocessed sales — to what changed. Read it below, or download a copy.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="${data.report}" download class="inline-flex items-center px-5 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded transition-colors">Download PDF</a>
+                                <a href="${data.reportDocx}" download class="inline-flex items-center px-5 py-2 bg-white border border-stone-300 hover:border-olive-300 text-slate-600 hover:text-olive-700 font-bold text-sm rounded transition-colors">Download Word version</a>
+                            </div>
+                        </div>
+                        <iframe src="${data.report}" class="w-full rounded-lg border border-stone-200 bg-white" style="height: 80vh;" title="Karra Community project report"></iframe>
+                    </div>
+                    ` : ''}
 
                     <!-- Bottom Back Button -->
                     <div class="border-t border-stone-200 pt-8 flex justify-center">
@@ -1474,6 +1499,20 @@
         }
 
         // Research Tab Logic
+        function switchProjectTab(tabId) {
+            // content
+            document.getElementById('pcontent-overview').classList.add('hidden');
+            document.getElementById('pcontent-report').classList.add('hidden');
+            document.getElementById('pcontent-' + tabId).classList.remove('hidden');
+
+            // tabs style
+            document.getElementById('ptab-overview').className = "px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors";
+            document.getElementById('ptab-report').className = "px-6 py-3 font-serif font-bold text-slate-500 bg-stone-100 hover:bg-stone-200 rounded-t-lg transition-colors";
+
+            // active tab style
+            document.getElementById('ptab-' + tabId).className = "px-6 py-3 font-serif font-bold text-white bg-slate-800 rounded-t-lg transition-colors";
+        }
+
         function switchResearchTab(tabId) {
             // content
             document.getElementById('content-publications').classList.add('hidden');
